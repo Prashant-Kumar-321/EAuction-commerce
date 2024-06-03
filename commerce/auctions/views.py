@@ -35,7 +35,6 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
 
-
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -59,5 +58,7 @@ def register(request):
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
+    
+    # Request for register form 
     else:
         return render(request, "auctions/register.html")
