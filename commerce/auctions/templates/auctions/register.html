@@ -1,4 +1,5 @@
 {% extends "auctions/layout.html" %}
+{% load static %}
 
 {% block body %}
 
@@ -11,20 +12,24 @@
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username" autocomplete="username">
         </div>
         <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email Address">
+            <input class="form-control" type="email" name="email" placeholder="Email Address" autocomplete="email">
         </div>
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-        <div class="form-group">
+        <div class="form-group error">
             <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Register">
+        <div class="submit-form-control">
+            <input class="btn btn-primary" type="submit" value="Register">
+        </div>
     </form>
 
     Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+    
+    <script src="{% static 'auctions/js/validateRegistration.js' %}"></script>
 
 {% endblock %}
