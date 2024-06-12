@@ -5,15 +5,15 @@ from .categories import Category
 class Listing(models.Model): 
 	title = models.CharField(blank=False, max_length=100) 
 	description = models.TextField()
-	image = models.ImageField(null=True, blank=True, upload_to='images/')
 	org_bid = models.PositiveBigIntegerField() 
 	running_bid = models.PositiveBigIntegerField() 
 	final_bid = models.PositiveBigIntegerField(null=True, blank=True) # price of the listing when it will be inactive 
 	is_active = models.BooleanField(default=True) 
-	winner = models.ForeignKey(User, null = True, blank=True, related_name="winner", on_delete=models.PROTECT) 
-	watch_list = models.ManyToManyField(User, related_name="watch_list")  # using this related name i can get all the listings that is in the watch list of an user 
+	winner= models.ForeignKey(User, null = True, blank=True, related_name="winner", on_delete=models.PROTECT) 
+	watch_list = models.ManyToManyField(User, blank=True, related_name="watch_list")  # using this related name i can get all the listings that is in the watch list of an user 
 	ctg = models.ForeignKey(Category, related_name='category', on_delete=models.PROTECT)
 	owner = models.ForeignKey(User, related_name='owner', on_delete=models.PROTECT, blank=False) 
+	image = models.ImageField(null=True, blank=True, upload_to="images/")
 
 """ 
 	Problem To Do.. 

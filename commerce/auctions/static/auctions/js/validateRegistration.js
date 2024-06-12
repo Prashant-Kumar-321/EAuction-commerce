@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 			const formDiv = document.querySelector("form>.error"); 
 
-			formDiv.insertAdjacentElement("afterend", errorCont); 
-			return false; 
+			formDiv.insertAdjacentElement("afterend", errorCont); // add an element right after formDiv element in the DOM
+			return false;  // prevent submitting the form
 		}
 	}
 

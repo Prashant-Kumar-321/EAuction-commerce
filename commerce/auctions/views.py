@@ -62,3 +62,13 @@ def register(request):
     # Request for register form 
     else:
         return render(request, "auctions/register.html")
+
+
+def add_listing(request): 
+    if request.method == "POST": 
+        if request.user.is_authenticated: 
+            pass 
+        else: 
+            pass
+    else: 
+        return render(request, "auctions/add-Listings.html")
